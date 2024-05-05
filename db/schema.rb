@@ -10,7 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_015845) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_021829) do
+  create_table "addresses", force: :cascade do |t|
+    t.string "street_address"
+    t.string "complement"
+    t.string "zipcode"
+    t.integer "country_id", null: false
+    t.integer "state_id", null: false
+    t.integer "city_id", null: false
+    t.integer "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_addresses_on_city_id"
+    t.index ["country_id"], name: "index_addresses_on_country_id"
+    t.index ["customer_id"], name: "index_addresses_on_customer_id"
+    t.index ["state_id"], name: "index_addresses_on_state_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.integer "state_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.integer "product_id", null: false
     t.integer "quantity"
@@ -39,6 +69,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_015845) do
     t.index ["model_id"], name: "index_products_on_model_id"
   end
 
+  create_table "states", force: :cascade do |t|
+    t.string "name"
+    t.integer "country_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_states_on_country_id"
+  end
+
+  add_foreign_key "addresses", "cities"
+  add_foreign_key "addresses", "countries"
+  add_foreign_key "addresses", "customers"
+  add_foreign_key "addresses", "states"
+  add_foreign_key "cities", "states"
   add_foreign_key "inventories", "products"
   add_foreign_key "products", "models"
+  add_foreign_key "states", "countries"
 end
