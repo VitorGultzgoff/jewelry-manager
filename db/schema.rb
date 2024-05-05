@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_022320) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -79,6 +79,26 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_022320) do
     t.index ["model_id"], name: "index_products_on_model_id"
   end
 
+  create_table "sale_products", force: :cascade do |t|
+    t.integer "sale_id", null: false
+    t.integer "product_id", null: false
+    t.integer "final_price"
+    t.integer "discount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_sale_products_on_product_id"
+    t.index ["sale_id"], name: "index_sale_products_on_sale_id"
+  end
+
+  create_table "sales", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "discount"
+    t.integer "final_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string "name"
     t.integer "country_id", null: false
@@ -94,5 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_022320) do
   add_foreign_key "cities", "states"
   add_foreign_key "inventories", "products"
   add_foreign_key "products", "models"
+  add_foreign_key "sale_products", "products"
+  add_foreign_key "sale_products", "sales"
+  add_foreign_key "sales", "customers"
   add_foreign_key "states", "countries"
 end
