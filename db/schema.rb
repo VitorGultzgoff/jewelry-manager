@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_034021) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_034657) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -83,7 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_034021) do
     t.integer "status"
     t.integer "cost_price"
     t.integer "sale_price"
-    t.boolean "is_third_party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "model_id", null: false
