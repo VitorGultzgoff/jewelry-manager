@@ -14,4 +14,6 @@
 #
 class Product < ApplicationRecord
   belongs_to :model
+  has_many :sale_products
+  has_many :sales, through: :sale_products
 end
