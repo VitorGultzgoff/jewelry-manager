@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_18_022406) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_014526) do
   create_table "models", force: :cascade do |t|
     t.string "name"
     t.string "icon_image_url"
@@ -26,6 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_18_022406) do
     t.boolean "is_third_party"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "model_id", null: false
+    t.index ["model_id"], name: "index_products_on_model_id"
   end
 
+  add_foreign_key "products", "models"
 end
