@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  name           :string
-#  photos_urls    :string
 #  status         :integer
 #  cost_price     :integer
 #  sale_price     :integer
