@@ -11,6 +11,7 @@
 #  payment_method        :string
 #  payment_status        :string
 #  schedule_payment_date :date
+#  completed_at          :datetime
 #
 class Sale < ApplicationRecord
   belongs_to :customer
