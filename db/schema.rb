@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_033123) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -33,6 +33,17 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "consignments", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_consignments_on_customer_id"
+    t.index ["product_id"], name: "index_consignments_on_product_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -79,6 +90,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
     t.index ["model_id"], name: "index_products_on_model_id"
   end
 
+  create_table "refunds", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "customer_id", null: false
+    t.text "reason"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_refunds_on_customer_id"
+    t.index ["product_id"], name: "index_refunds_on_product_id"
+  end
+
   create_table "sale_products", force: :cascade do |t|
     t.integer "sale_id", null: false
     t.integer "product_id", null: false
@@ -96,6 +117,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
     t.integer "final_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_method"
+    t.string "payment_status"
+    t.date "schedule_payment_date"
     t.index ["customer_id"], name: "index_sales_on_customer_id"
   end
 
@@ -112,8 +136,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_023235) do
   add_foreign_key "addresses", "customers"
   add_foreign_key "addresses", "states"
   add_foreign_key "cities", "states"
+  add_foreign_key "consignments", "customers"
+  add_foreign_key "consignments", "products"
   add_foreign_key "inventories", "products"
   add_foreign_key "products", "models"
+  add_foreign_key "refunds", "customers"
+  add_foreign_key "refunds", "products"
   add_foreign_key "sale_products", "products"
   add_foreign_key "sale_products", "sales"
   add_foreign_key "sales", "customers"
