@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_033123) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_033743) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_033123) do
     t.string "payment_method"
     t.string "payment_status"
     t.date "schedule_payment_date"
+    t.datetime "completed_at"
     t.index ["customer_id"], name: "index_sales_on_customer_id"
   end
 
