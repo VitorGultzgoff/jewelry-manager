@@ -4,6 +4,9 @@ module Types
       argument :id, ID, required: true, description: "ID of the object."
     end
 
+    field :models, [Types::ModelType], null: false
+    field :products, [Types::ProductType], null: false
+
     def node(id:)
       context.schema.object_from_id(id, context)
     end
@@ -16,14 +19,12 @@ module Types
       ids.map { |id| context.schema.object_from_id(id, context) }
     end
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    def models
+      Model.all
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def products
+      Product.all
     end
   end
 end
