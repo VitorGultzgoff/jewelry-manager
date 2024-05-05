@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_034657) do
+ActiveRecord::Schema[7.0].define(version: 2024_05_05_034855) do
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -86,7 +86,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_034657) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "model_id", null: false
+    t.integer "supplier_id"
     t.index ["model_id"], name: "index_products_on_model_id"
+    t.index ["supplier_id"], name: "index_products_on_supplier_id"
   end
 
   create_table "refunds", force: :cascade do |t|
@@ -132,6 +134,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_034657) do
     t.index ["country_id"], name: "index_states_on_country_id"
   end
 
+  create_table "suppliers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "addresses", "cities"
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
@@ -141,6 +149,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_034657) do
   add_foreign_key "consignments", "products"
   add_foreign_key "inventories", "products"
   add_foreign_key "products", "models"
+  add_foreign_key "products", "suppliers"
   add_foreign_key "refunds", "customers"
   add_foreign_key "refunds", "products"
   add_foreign_key "sale_products", "products"
