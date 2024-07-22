@@ -53,3 +53,4 @@ end
 gem "pg"
 gem "graphql"
 gem "graphiql-rails", group: :development
+gem "pundit"
