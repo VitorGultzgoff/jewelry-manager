@@ -35,17 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_035752) do
     t.index ["state_id"], name: "index_cities_on_state_id"
   end
 
-  create_table "consignments", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "customer_id", null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_consignments_on_customer_id"
-    t.index ["product_id"], name: "index_consignments_on_product_id"
-  end
-
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -165,8 +154,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_035752) do
   add_foreign_key "addresses", "customers"
   add_foreign_key "addresses", "states"
   add_foreign_key "cities", "states"
-  add_foreign_key "consignments", "customers"
-  add_foreign_key "consignments", "products"
   add_foreign_key "inventories", "products"
   add_foreign_key "products", "models"
   add_foreign_key "products", "suppliers"
