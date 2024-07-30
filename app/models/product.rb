@@ -19,4 +19,5 @@ class Product < ApplicationRecord
   has_many :sale_products
   has_many :sales, through: :sale_products
   belongs_to :supplier
+  has_many :actions
 end

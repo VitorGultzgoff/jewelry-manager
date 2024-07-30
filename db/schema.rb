@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_26_035752) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_30_001443) do
+  create_table "actions", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "action_type", null: false
+    t.date "executed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_actions_on_product_id"
+  end
+
   create_table "addresses", force: :cascade do |t|
     t.string "street_address"
     t.string "complement"
@@ -149,6 +158,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_26_035752) do
     t.index ["email"], name: "index_users_on_email"
   end
 
+  add_foreign_key "actions", "products"
   add_foreign_key "addresses", "cities"
   add_foreign_key "addresses", "countries"
   add_foreign_key "addresses", "customers"
