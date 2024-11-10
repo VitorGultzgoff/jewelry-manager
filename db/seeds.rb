@@ -64,16 +64,32 @@ statuses = %w[Stock Consigned Sold Dismantled Lost Canceled]
 statuses.each do |status|
   Model.find_each do |model|
     Supplier.find_each do |supplier|
-      Product.create(
+      Product.find_or_create_by(
         name: "#{model.name} #{status}",
-        status:,
-        cost_price: rand(100..500),
-        sale_price: rand(600..1000),
         model:,
         supplier:
-      )
+      ) do |prod|
+        prod.status = status
+        prod.cost_price = rand(100..500)
+        prod.sale_price = rand(600..1000)
+      end
     end
   end
 end
 
 puts 'Products have been seeded successfully.'
+
+# Create roles
+admin_role = Role.find_or_create_by(name: 'admin')
+Role.find_or_create_by(name: 'client')
+
+# Create users
+vitor = User.find_or_create_by(email: 'vitor@email.com') do |user|
+  user.password = '12345'
+  user.password_confirmation = '12345'
+end
+
+# Assign roles to users
+vitor.roles << admin_role unless vitor.roles.include?(admin_role)
+
+puts "Created user: #{vitor.email} with roles: #{vitor.roles.map(&:name).join(', ')}"
