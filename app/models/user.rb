@@ -12,10 +12,24 @@
 #  updated_at         :datetime         not null
 #
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
+
   has_and_belongs_to_many :roles
 
-  validates :name, :email, :encrypted_password, presence: true
+  validates :email, :encrypted_password, presence: true
   validates :email, uniqueness: true
+
+  def self.create_user_and_generate_token(email:, password:, roles: [])
+    user = User.create!(email:, password:)
+    roles.each do |role_name|
+      role = Role.find_or_create_by!(name: role_name)
+      user.roles << role unless user.roles.include?(role)
+    end
+    token = JwtService.encode(user_id: user.id)
+    { user:, token: }
+  end
 
   def any_role?(roles)
     roles.any? { |curr_role| role?(curr_role) }
