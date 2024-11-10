@@ -91,5 +91,4 @@ end
 
 # Assign roles to users
 vitor.roles << admin_role unless vitor.roles.include?(admin_role)
-
 puts "Created user: #{vitor.email} with roles: #{vitor.roles.map(&:name).join(', ')}"
