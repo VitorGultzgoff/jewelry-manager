@@ -14,4 +14,7 @@
 #  updated_at :datetime         not null
 #
 class Customer < ApplicationRecord
+  validates :email, presence: true, uniqueness: true,
+                    format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Must be a valid email address' }
+  validates :name, presence: true, length: { minimum: 2, maximum: 50 }
 end
