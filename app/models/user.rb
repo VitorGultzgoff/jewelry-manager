@@ -18,8 +18,10 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :roles
 
-  validates :email, :encrypted_password, presence: true
-  validates :email, uniqueness: true
+  validates :encrypted_password, presence: true
+  validates :email, presence: true, uniqueness: true,
+                    format: { with: URI::MailTo::EMAIL_REGEXP, message: 'Must be a valid email address' }
+
 
   def self.create_user_and_generate_token(email:, password:, roles: [])
     user = User.create!(email:, password:)
