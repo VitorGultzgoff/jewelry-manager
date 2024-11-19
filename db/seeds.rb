@@ -80,18 +80,14 @@ end
 puts 'Products have been seeded successfully.'
 
 # Create roles
-admin_role = Role.find_or_create_by(name: 'admin')
+Role.find_or_create_by(name: 'admin')
 Role.find_or_create_by(name: 'client')
 
 # Create users
-vitor = User.find_or_create_by(email: 'vitor@email.com') do |user|
-  user.password = '12345'
-  user.password_confirmation = '12345'
-end
+created_user = User.create_user_and_generate_token(email: 'admin@email.com', password: '123456', roles: %w[admin client])
 
 # Assign roles to users
-vitor.roles << admin_role unless vitor.roles.include?(admin_role)
-puts "Created user: #{vitor.email} with roles: #{vitor.roles.map(&:name).join(', ')}"
+puts "Created user: #{created_user[:user].email} with roles: #{created_user[:user].roles.map(&:name).join(', ')}"
 
 # Create customers
 customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |customer|
