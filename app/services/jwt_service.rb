@@ -3,8 +3,8 @@
 class JwtService
   HMAC_SECRET = Rails.application.credentials.devise[:jwt_secret_key]
 
-  def self.encode(user)
-    payload = { sub: user.id, exp: (Time.now + 24.hours).to_i }
+  def self.encode(user_id)
+    payload = { sub: user_id, exp: (Time.now + 24.hours).to_i }
     JWT.encode(payload, Rails.application.credentials.devise[:jwt_secret_key], 'HS256')
   end
 
