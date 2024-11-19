@@ -58,13 +58,13 @@ end
 
 puts 'Suppliers have been seeded successfully.'
 
-# Seed products
+# Seed products & inventory
 statuses = %w[Stock Consigned Sold Dismantled Lost Canceled]
 
 statuses.each do |status|
   Model.find_each do |model|
     Supplier.find_each do |supplier|
-      Product.find_or_create_by(
+      product = Product.find_or_create_by(
         name: "#{Faker::Commerce.material} - #{model.name}",
         model:,
         supplier:
@@ -73,11 +73,14 @@ statuses.each do |status|
         prod.cost_price = rand(100..500)
         prod.sale_price = rand(600..1000)
       end
+
+      product.save! if product.new_record?
+      Inventory.find_or_create_by(product:, location: Faker::Address.city, quantity: rand(10..100))
     end
   end
 end
 
-puts 'Products have been seeded successfully.'
+puts 'Products & Inventory have been seeded successfully.'
 
 # Create roles
 Role.find_or_create_by(name: 'admin')
