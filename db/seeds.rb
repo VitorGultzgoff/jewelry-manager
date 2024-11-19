@@ -65,7 +65,7 @@ statuses.each do |status|
   Model.find_each do |model|
     Supplier.find_each do |supplier|
       Product.find_or_create_by(
-        name: "#{model.name} #{status}",
+        name: "#{Faker::Commerce.material} - #{model.name}",
         model:,
         supplier:
       ) do |prod|

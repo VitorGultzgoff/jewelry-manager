@@ -49,6 +49,7 @@ end
 
 gem 'devise'
 gem 'devise-jwt'
+gem 'faker'
 gem 'graphql'
 gem 'pg'
 gem 'pundit'
