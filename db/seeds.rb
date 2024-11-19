@@ -92,3 +92,11 @@ end
 # Assign roles to users
 vitor.roles << admin_role unless vitor.roles.include?(admin_role)
 puts "Created user: #{vitor.email} with roles: #{vitor.roles.map(&:name).join(', ')}"
+
+# Create customers
+customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |customer|
+  customer.document = '316.428.270-29'
+  customer.email = 'goldenglimmers@email.com'
+  customer.phone = '9999999999999'
+end
+puts "Created customer: #{customer_created.email} - #{customer_created.name}"
