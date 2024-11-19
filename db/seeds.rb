@@ -84,10 +84,12 @@ Role.find_or_create_by(name: 'admin')
 Role.find_or_create_by(name: 'client')
 
 # Create users
-created_user = User.create_user_and_generate_token(email: 'admin@email.com', password: '123456', roles: %w[admin client])
+created_admin = User.create_user_and_generate_token(email: 'admin@email.com', password: '123456', roles: %w[admin client])
+created_client = User.create_user_and_generate_token(email: 'client@email.com', password: '123456', roles: %w[client])
 
 # Assign roles to users
-puts "Created user: #{created_user[:user].email} with roles: #{created_user[:user].roles.map(&:name).join(', ')}"
+puts "Created user: #{created_admin[:user].email} with roles: #{created_admin[:user].roles.map(&:name).join(', ')}"
+puts "Created user: #{created_client[:user].email} with roles: #{created_client[:user].roles.map(&:name).join(', ')}"
 
 # Create customers
 customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |customer|
