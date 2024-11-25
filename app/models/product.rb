@@ -7,8 +7,8 @@
 #  id          :integer          not null, primary key
 #  name        :string
 #  status      :integer
-#  cost_price  :integer
-#  sale_price  :integer
+#  cost_price  :decimal(10, 2)   default(0.0)
+#  sale_price  :decimal(10, 2)   default(0.0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  model_id    :integer          not null

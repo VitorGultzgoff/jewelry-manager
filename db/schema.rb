@@ -79,8 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_001443) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "status"
-    t.integer "cost_price"
-    t.integer "sale_price"
+    t.decimal "cost_price", precision: 10, scale: 2, default: "0.0"
+    t.decimal "sale_price", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "model_id", null: false
@@ -114,8 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_001443) do
   create_table "sale_products", force: :cascade do |t|
     t.integer "sale_id", null: false
     t.integer "product_id", null: false
-    t.integer "final_price"
-    t.integer "discount"
+    t.decimal "discount", precision: 10, scale: 2, default: "0.0"
+    t.decimal "final_price", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_sale_products_on_product_id"
@@ -124,8 +124,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_30_001443) do
 
   create_table "sales", force: :cascade do |t|
     t.integer "customer_id", null: false
-    t.integer "discount"
-    t.integer "final_price"
+    t.decimal "discount", precision: 10, scale: 2, default: "0.0"
+    t.decimal "final_price", precision: 10, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "payment_method"

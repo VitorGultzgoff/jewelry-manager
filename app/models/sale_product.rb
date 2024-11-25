@@ -7,8 +7,8 @@
 #  id          :integer          not null, primary key
 #  sale_id     :integer          not null
 #  product_id  :integer          not null
-#  final_price :integer
-#  discount    :integer
+#  discount    :decimal(10, 2)   default(0.0)
+#  final_price :decimal(10, 2)   default(0.0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

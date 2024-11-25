@@ -5,8 +5,8 @@ class CreateProducts < ActiveRecord::Migration[7.0]
     create_table :products do |t|
       t.string :name
       t.integer :status
-      t.integer :cost_price
-      t.integer :sale_price
+      t.decimal :cost_price, precision: 10, scale: 2, default: 0.0
+      t.decimal :sale_price, precision: 10, scale: 2, default: 0.0
       t.boolean :is_third_party
 
       t.timestamps

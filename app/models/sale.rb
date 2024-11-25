@@ -6,8 +6,8 @@
 #
 #  id                    :integer          not null, primary key
 #  customer_id           :integer          not null
-#  discount              :integer
-#  final_price           :integer
+#  discount              :decimal(10, 2)   default(0.0)
+#  final_price           :decimal(10, 2)   default(0.0)
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  payment_method        :string
