@@ -82,11 +82,11 @@ end
 
 puts 'Products & Inventory have been seeded successfully.'
 
-# Create roles
+# Seed roles
 Role.find_or_create_by(name: 'admin')
 Role.find_or_create_by(name: 'client')
 
-# Create users
+# Seed users
 created_admin = User.create_user_and_generate_token(email: 'admin@email.com', password: '123456', roles: %w[admin client])
 created_client = User.create_user_and_generate_token(email: 'client@email.com', password: '123456', roles: %w[client])
 
@@ -94,7 +94,7 @@ created_client = User.create_user_and_generate_token(email: 'client@email.com', 
 puts "Created user: #{created_admin[:user].email} with roles: #{created_admin[:user].roles.map(&:name).join(', ')}"
 puts "Created user: #{created_client[:user].email} with roles: #{created_client[:user].roles.map(&:name).join(', ')}"
 
-# Create customers
+# Seed customers
 customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |customer|
   customer.document = '316.428.270-29'
   customer.email = 'goldenglimmers@email.com'
