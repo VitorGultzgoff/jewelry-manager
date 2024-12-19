@@ -164,6 +164,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
   }, []);
 
   const login = async (email: string, password: string): Promise<void> => {
+    debugger;
     const response = await axios.post<{ accessToken: string; user: User }>(
       '/users/sign_in',
       {
@@ -172,6 +173,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
       }
     );
     const { accessToken, user } = response.data;
+    debugger;
 
     setSession(accessToken);
     dispatch({
