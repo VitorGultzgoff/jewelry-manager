@@ -328,19 +328,6 @@ const menuItems: MenuItems[] = [
         link: '/auth',
         items: [
           {
-            name: 'Login',
-            items: [
-              {
-                name: 'Basic',
-                link: '/account/login-basic'
-              },
-              {
-                name: 'Cover',
-                link: '/account/login-cover'
-              }
-            ]
-          },
-          {
             name: 'Register',
             items: [
               {

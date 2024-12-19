@@ -124,7 +124,7 @@ function RegisterBasic() {
                 >
                   {t('Already have an account?')}
                 </Typography>{' '}
-                <Link component={RouterLink} to="/account/login-basic">
+                <Link component={RouterLink} to="/login">
                   <b>{t('Sign in here')}</b>
                 </Link>
               </Box>

@@ -2,7 +2,7 @@ import { FC, ReactNode, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useAuth from 'src/hooks/useAuth';
-import Login from 'src/content/pages/Auth/Login/Cover';
+import { LoginPage } from 'src/content/pages/Auth/Login';
 
 interface AuthenticatedProps {
   children: ReactNode;
@@ -20,7 +20,7 @@ const Authenticated: FC<AuthenticatedProps> = (props: { children: any }) => {
     if (location.pathname !== requestedLocation) {
       setRequestedLocation(location.pathname);
     }
-    return <Login />;
+    return <LoginPage />;
   }
 
   if (requestedLocation && location.pathname !== requestedLocation) {

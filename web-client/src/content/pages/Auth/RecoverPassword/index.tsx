@@ -206,7 +206,7 @@ function RecoverPasswordBasic() {
             >
               {t('Want to try to sign in again?')}
             </Typography>{' '}
-            <Link component={RouterLink} to="/account/login-basic">
+            <Link component={RouterLink} to="/login">
               <b>Click here</b>
             </Link>
           </Box>
@@ -270,7 +270,7 @@ function RecoverPasswordBasic() {
             size="large"
             variant="contained"
             onClick={handleCloseDialog}
-            href="/account/login-basic"
+            href="/login"
           >
             {t('Continue to login')}
           </Button>

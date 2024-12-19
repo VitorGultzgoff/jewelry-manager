@@ -12,13 +12,6 @@ const Loader = (Component) => (props) =>
 
 // Account
 
-const LoginCover = Loader(
-  lazy(() => import('src/content/pages/Auth/Login/Cover'))
-);
-const LoginBasic = Loader(
-  lazy(() => import('src/content/pages/Auth/Login/Basic'))
-);
-
 const RegisterCover = Loader(
   lazy(() => import('src/content/pages/Auth/Register/Cover'))
 );
@@ -35,28 +28,12 @@ const RecoverPassword = Loader(
 
 const accountRoutes = [
   {
-    path: 'login',
-    element: (
-      <Guest>
-        <LoginCover />
-      </Guest>
-    )
-  },
-  {
     path: 'register',
     element: (
       <Guest>
         <RegisterCover />
       </Guest>
     )
-  },
-  {
-    path: 'login-basic',
-    element: <LoginBasic />
-  },
-  {
-    path: 'login-cover',
-    element: <LoginCover />
   },
   {
     path: 'recover-password',

@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
 import SuspenseLoader from 'src/components/SuspenseLoader';
+import { LoginPage } from 'src/content/pages/Auth/Login';
 
 const Loader = (Component) => (props) =>
   (
@@ -33,6 +34,10 @@ const baseRoutes = [
   {
     path: '/',
     element: <Overview />
+  },
+  {
+    path: '/login',
+    element: <LoginPage />
   },
   {
     path: 'overview',

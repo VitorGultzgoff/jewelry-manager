@@ -332,7 +332,7 @@ function RegisterWizard() {
                     <Button
                       fullWidth
                       variant="contained"
-                      href="/account/login-basic"
+                      href="/login"
                     >
                       Continue to sign in
                     </Button>

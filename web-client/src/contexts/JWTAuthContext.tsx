@@ -165,7 +165,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
 
   const login = async (email: string, password: string): Promise<void> => {
     const response = await axios.post<{ accessToken: string; user: User }>(
-      '/api/account/login',
+      '/users/sign_in',
       {
         email,
         password

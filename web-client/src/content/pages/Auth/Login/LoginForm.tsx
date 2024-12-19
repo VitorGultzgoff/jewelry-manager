@@ -18,7 +18,7 @@ import useAuth from 'src/hooks/useAuth';
 import useRefMounted from 'src/hooks/useRefMounted';
 import { useTranslation } from 'react-i18next';
 
-const LoginAmplify: FC = () => {
+export const LoginForm: FC = () => {
   const { login } = useAuth() as any;
   const isMountedRef = useRefMounted();
   const { t }: { t: any } = useTranslation();
@@ -26,8 +26,8 @@ const LoginAmplify: FC = () => {
   return (
     <Formik
       initialValues={{
-        email: 'demo@example.com',
-        password: 'TokyoPass1@',
+        email: "",
+        password: "",
         terms: true,
         submit: null
       }}
@@ -57,7 +57,6 @@ const LoginAmplify: FC = () => {
           }
         } catch (err) {
           console.error(err);
-
           if (isMountedRef.current) {
             setStatus({ success: false });
             setErrors({ submit: err.message });
@@ -159,5 +158,3 @@ const LoginAmplify: FC = () => {
     </Formik>
   );
 };
-
-export default LoginAmplify;
