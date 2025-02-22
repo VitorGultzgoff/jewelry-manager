@@ -1,7 +1,6 @@
 import axios from 'axios';
-import AxiosMockAdapter from 'axios-mock-adapter';
 
-const axiosInt = axios.create();
+const axiosInt = axios.create({ baseURL: 'http://localhost:3000/' });
 
 axiosInt.interceptors.response.use(
   (response) => response,
@@ -10,7 +9,5 @@ axiosInt.interceptors.response.use(
       (error.response && error.response.data) || 'There is an error!'
     )
 );
-
-export const mock = new AxiosMockAdapter(axiosInt, { delayResponse: 0 });
 
 export default axiosInt;
