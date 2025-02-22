@@ -172,7 +172,6 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
       }
     );
     const { token, user } = response.data;
-    debugger;
 
     setSession(token);
     dispatch({
