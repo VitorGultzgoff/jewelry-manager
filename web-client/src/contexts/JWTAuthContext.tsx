@@ -164,18 +164,17 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
   }, []);
 
   const login = async (email: string, password: string): Promise<void> => {
-    debugger;
-    const response = await axios.post<{ accessToken: string; user: User }>(
+    const response = await axios.post<{ token: string; user: User }>(
       '/users/sign_in',
       {
         email,
         password
       }
     );
-    const { accessToken, user } = response.data;
+    const { token, user } = response.data;
     debugger;
 
-    setSession(accessToken);
+    setSession(token);
     dispatch({
       type: 'LOGIN',
       payload: {

@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-import 'src/mocks';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollTop from 'src/hooks/useScrollTop';
