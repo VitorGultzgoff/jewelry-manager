@@ -16,7 +16,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '47f5e9f8a3d1f87099563e922509aba2b1f528797fde4b7781cc5749e49042408699fccbd54585b9fe7f215fc88b2fd29132b25791a3ef862774b945c710b448'
   config.jwt do |jwt|
-    jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
+    jwt.secret = Rails.application.credentials.devise_jwt_secret_key
     jwt.dispatch_requests = [
       ['POST', %r{^/login$}]
     ]

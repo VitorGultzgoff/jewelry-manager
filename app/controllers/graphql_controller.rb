@@ -52,7 +52,7 @@ class GraphqlController < ApplicationController
 
     token = request.headers['Authorization']&.split(' ')&.last
     begin
-      decoded_token = JWT.decode(token, Rails.application.secrets.secret_key_base).first
+      decoded_token = JWT.decode(token, Rails.application.secrets.devise_jwt_secret_key).first
       @current_user = User.find(decoded_token['user_id'])
     rescue JWT::DecodeError
       render json: { error: 'Unauthorized' }, status: :unauthorized
