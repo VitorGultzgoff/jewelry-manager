@@ -101,3 +101,17 @@ customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |custo
   customer.phone = '9999999999999'
 end
 puts "Created customer: #{customer_created.email} - #{customer_created.name}"
+
+# Seed actions
+action_types = %w[cancel consign dismantle lost sell stock]
+
+Product.find_each do |product|
+  action_types.each do |action_type|
+    Action.find_or_create_by(
+      product: product,
+      action_type: action_type,
+      executed_at: Faker::Date.backward(days: 30) # Random date within the last 30 days
+    )
+  end
+end
+puts 'Product actions successfully included.'
