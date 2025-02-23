@@ -102,16 +102,25 @@ customer_created = Customer.find_or_create_by(name: 'Golden Glimmers') do |custo
 end
 puts "Created customer: #{customer_created.email} - #{customer_created.name}"
 
-# Seed actions
+# Seed actions for products
 action_types = %w[cancel consign dismantle lost sell stock]
 
 Product.find_each do |product|
   action_types.each do |action_type|
+    customer = nil
+
+    # Only assign a customer for 'consign' or 'sell'
+    if %w[consign sell].include?(action_type)
+      customer = Customer.order('RANDOM()').first # Randomly assign a customer
+    end
+
     Action.find_or_create_by(
-      product: product,
-      action_type: action_type,
+      product:,
+      action_type:,
+      customer:,
       executed_at: Faker::Date.backward(days: 30) # Random date within the last 30 days
     )
   end
 end
-puts 'Product actions successfully included.'
+
+puts 'Actions have been seeded successfully.'
