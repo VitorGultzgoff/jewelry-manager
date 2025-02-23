@@ -13,6 +13,7 @@
 #
 class Action < ApplicationRecord
   belongs_to :product
+  belongs_to :customer, optional: true
 
   validates :action_type, presence: true
 end
