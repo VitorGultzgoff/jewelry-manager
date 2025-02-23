@@ -124,3 +124,37 @@ Product.find_each do |product|
 end
 
 puts 'Actions have been seeded successfully.'
+
+# Seed sales for customers
+customers = Customer.all
+products = Product.all
+
+customers.each do |customer|
+  rand(1..5).times do
+    sale = Sale.create!(
+      customer: customer,
+      discount: rand(0..10) * 0.1,
+      final_price: rand(100..500),
+      payment_method: ['Credit Card', 'Cash', 'Bank Transfer'].sample,
+      payment_status: %w[Pending Paid Failed].sample,
+      schedule_payment_date: Faker::Date.forward(days: rand(1..30)),
+      completed_at: rand(1..5).odd? ? Faker::Date.backward(days: rand(1..30)) : nil
+    )
+
+    products.sample(rand(1..3)).each do |product|
+      quantity = rand(1..5)
+      discount = rand(0..10) * 0.1
+      final_price = product.sale_price * quantity - discount
+
+      SaleProduct.create!(
+        sale:,
+        product:,
+        quantity:,
+        discount:,
+        final_price:
+      )
+    end
+  end
+end
+
+puts 'Sales have been seeded successfully.'
