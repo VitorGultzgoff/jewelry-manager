@@ -6,7 +6,7 @@ class Users::SessionsController < ApplicationController
 
     if user&.valid_password?(params[:password])
       token = JwtService.encode(user)
-      render json: { token: }
+      render json: { token:, user: }
     else
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
