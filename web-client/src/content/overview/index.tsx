@@ -4,7 +4,6 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Logo from 'src/components/LogoSign';
 import Hero from './Hero';
-import Highlights from './Highlights';
 import LanguageSwitcher from 'src/layouts/BoxedSidebarLayout/Header/Buttons/LanguageSwitcher';
 import Footer from 'src/components/Footer';
 
@@ -64,7 +63,6 @@ function Overview() {
         </Container>
       </HeaderWrapper>
       <Hero />
-      <Highlights />
       <Footer />
     </OverviewWrapper>
   );
