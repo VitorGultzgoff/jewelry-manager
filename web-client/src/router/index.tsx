@@ -17,7 +17,6 @@ import dashboardsRoutes from './dashboards';
 import blocksRoutes from './blocks';
 import applicationsRoutes from './applications';
 import managementRoutes from './management';
-import documentationRoutes from './documentation';
 import accountRoutes from './account';
 import baseRoutes from './base';
 
@@ -30,14 +29,6 @@ const router: RouteObject[] = [
     path: '',
     element: <BaseLayout />,
     children: baseRoutes
-  },
-
-  // Documentation
-
-  {
-    path: 'docs',
-    element: <DocsLayout />,
-    children: documentationRoutes
   },
 
   // Boxed Sidebar Layout

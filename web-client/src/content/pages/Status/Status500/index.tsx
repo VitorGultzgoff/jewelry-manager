@@ -109,15 +109,6 @@ function Status500() {
                 >
                   {t('Refresh view')}
                 </LoadingButton>
-                <Button
-                  href="/overview"
-                  variant="contained"
-                  sx={{
-                    ml: 1
-                  }}
-                >
-                  {t('Go back')}
-                </Button>
               </Box>
             </Container>
           </Grid>
@@ -140,7 +131,7 @@ function Status500() {
                     my: 2
                   }}
                 >
-                  {t('Tokyo React Typescript Admin Dashboard')}
+                  {t('Jewelry Manager')}
                 </TypographyPrimary>
                 <TypographySecondary
                   variant="h4"

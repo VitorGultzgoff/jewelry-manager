@@ -105,9 +105,6 @@ function Status404() {
               >
                 OR
               </Divider>
-              <Button href="/overview" variant="outlined">
-                {t('Go to homepage')}
-              </Button>
             </Card>
           </Container>
         </Container>
