@@ -80,7 +80,7 @@ function Logo() {
       <Tooltip
         arrow
         placement="right"
-        title="Tokyo React Typescript Admin Dashboard"
+        title="Jewelry Manager"
       >
         <LogoSignWrapper>
           <LogoSign>

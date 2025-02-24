@@ -4,7 +4,7 @@
   "display": "standalone",
   "start_url": ".",
   "short_name": "Tokyo",
-  "name": "Tokyo React Typescript Admin Dashboard",
+  "name": "Jewelry Manager",
   "icons": [
     {
       "src": "/icon-192x192.png",
