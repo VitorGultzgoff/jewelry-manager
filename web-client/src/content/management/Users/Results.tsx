@@ -226,10 +226,6 @@ const Results: FC<ResultsProps> = ({ users }) => {
     {
       value: 'admin',
       label: t('Administrators')
-    },
-    {
-      value: 'subscriber',
-      label: t('Subscribers')
     }
   ];
 
