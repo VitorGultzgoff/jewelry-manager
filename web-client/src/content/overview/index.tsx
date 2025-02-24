@@ -3,9 +3,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Logo from 'src/components/LogoSign';
-import Hero from './Hero';
 import LanguageSwitcher from 'src/layouts/BoxedSidebarLayout/Header/Buttons/LanguageSwitcher';
 import Footer from 'src/components/Footer';
+import OverviewSection from './OverviewSection';
 
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `
@@ -32,7 +32,7 @@ function Overview() {
   return (
     <OverviewWrapper>
       <Helmet>
-        <title>Tokyo React Typescript Admin Dashboard</title>
+        <title>💎Jewelry Manager</title>
       </Helmet>
       <HeaderWrapper>
         <Container maxWidth="lg">
@@ -55,14 +55,14 @@ function Overview() {
                     ml: 2
                   }}
                 >
-                  {t('Live Preview')}
+                  {t('Sign In')}
                 </Button>
               </Box>
             </Box>
           </Box>
         </Container>
       </HeaderWrapper>
-      <Hero />
+      <OverviewSection />
       <Footer />
     </OverviewWrapper>
   );

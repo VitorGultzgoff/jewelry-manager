@@ -33,7 +33,7 @@ const LabelWrapper = styled(Box)(
 `
 );
 
-function Hero() {
+function OverviewSection() {
   const { t }: { t: any } = useTranslation();
 
   return (
@@ -71,4 +71,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default OverviewSection;
