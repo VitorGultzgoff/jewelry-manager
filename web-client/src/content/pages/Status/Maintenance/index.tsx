@@ -77,18 +77,6 @@ function StatusMaintenance() {
             justifyContent="space-between"
           >
             <Box>
-              <Typography component="span" variant="subtitle1">
-                {t('Phone')}:{' '}
-              </Typography>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="text.primary"
-              >
-                + 00 1 888 555 444
-              </Typography>
-            </Box>
-            <Box>
               <Tooltip arrow placement="top" title="Facebook">
                 <IconButton color="primary">
                   <FacebookIcon />
