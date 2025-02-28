@@ -140,9 +140,7 @@ function Status500() {
                     mb: 4
                   }}
                 >
-                  {t(
-                    'High performance React template built with lots of powerful MUI (Material-UI) components across multiple product niches for fast & perfect apps development processes.'
-                  )}
+                  A full-stack inventory and sales tracker for jewelry businesses. Manage stock, track sales, engage customers, and gain insights with real-time analytics.
                 </TypographySecondary>
                 <Button href="/overview" size="large" variant="contained">
                   {t('Overview')}
