@@ -24,9 +24,8 @@ const router: RouteObject[] = [
     children: baseRoutes
   },
 
-  // Collapsed Sidebar Layout
   {
-    path: 'collapsed-sidebar',
+    path: 'app',
     element: (
       <Authenticated>
         <CollapsedSidebarLayout />

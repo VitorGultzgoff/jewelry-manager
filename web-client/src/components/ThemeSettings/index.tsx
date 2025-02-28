@@ -3,8 +3,6 @@ import {
   Popover,
   styled,
   Button,
-  MenuItem,
-  Menu,
   Typography,
   Stack,
   Divider,
@@ -17,7 +15,6 @@ import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 import Fab from '@mui/material/Fab';
 import { useTranslation } from 'react-i18next';
 import UnfoldMoreTwoToneIcon from '@mui/icons-material/UnfoldMoreTwoTone';
-import { NavLink } from 'react-router-dom';
 
 const ThemeSettingsButton = styled(Box)(
   ({ theme }) => `
@@ -225,9 +222,6 @@ const ThemeSettings: FC = () => {
   const openMenu = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
-  const closeMenu = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <>
@@ -275,39 +269,6 @@ const ThemeSettings: FC = () => {
             >
               Choose layout
             </Button>
-            <Menu
-              disableScrollLock
-              anchorEl={anchorEl}
-              open={open}
-              onClose={closeMenu}
-              anchorOrigin={{
-                vertical: 'center',
-                horizontal: 'center'
-              }}
-              transformOrigin={{
-                vertical: 'center',
-                horizontal: 'center'
-              }}
-            >
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
-                to="/accent-header/dashboards"
-              >
-                Accent Header
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
-                to="/collapsed-sidebar/dashboards"
-              >
-                Collapsed Sidebar
-              </MenuItem>
-            </Menu>
           </Box>
           <Divider />
           <Stack

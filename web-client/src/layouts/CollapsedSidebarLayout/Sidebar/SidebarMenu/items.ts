@@ -5,8 +5,6 @@ import HealthAndSafetyTwoToneIcon from '@mui/icons-material/HealthAndSafetyTwoTo
 import AssignmentIndTwoToneIcon from '@mui/icons-material/AssignmentIndTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
 import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
-import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
-import SupportTwoToneIcon from '@mui/icons-material/SupportTwoTone';
 import ReceiptTwoToneIcon from '@mui/icons-material/ReceiptTwoTone';
 import SmartToyTwoToneIcon from '@mui/icons-material/SmartToyTwoTone';
 
@@ -32,7 +30,7 @@ const menuItems: MenuItems[] = [
       {
         name: 'Dashboards',
         icon: SmartToyTwoToneIcon,
-        link: '/collapsed-sidebar/dashboards',
+        link: '/app/dashboards',
         items: [
           {
             name: 'Reports',
@@ -110,7 +108,7 @@ const menuItems: MenuItems[] = [
         name: 'Data Display',
         icon: HealthAndSafetyTwoToneIcon,
         badge: '',
-        link: '/collapsed-sidebar/blocks',
+        link: '/app/blocks',
         items: [
           {
             name: 'Charts large',
@@ -177,7 +175,7 @@ const menuItems: MenuItems[] = [
       {
         name: 'Applications',
         icon: AnalyticsTwoToneIcon,
-        link: '/collapsed-sidebar/applications',
+        link: '/app/applications',
         items: [
           {
             name: 'Calendar',
@@ -213,7 +211,7 @@ const menuItems: MenuItems[] = [
       {
         name: 'Users',
         icon: AssignmentIndTwoToneIcon,
-        link: '/collapsed-sidebar/management/users',
+        link: '/app/management/users',
         items: [
           {
             name: 'List',
@@ -228,12 +226,12 @@ const menuItems: MenuItems[] = [
       {
         name: 'Projects',
         icon: AccountTreeTwoToneIcon,
-        link: '/collapsed-sidebar/management/projects/list'
+        link: '/app/management/projects/list'
       },
       {
         name: 'Commerce',
         icon: StorefrontTwoToneIcon,
-        link: '/collapsed-sidebar/management/commerce',
+        link: '/app/management/commerce',
         items: [
           {
             name: 'Shop',
@@ -256,7 +254,7 @@ const menuItems: MenuItems[] = [
       {
         name: 'Invoices',
         icon: ReceiptTwoToneIcon,
-        link: '/collapsed-sidebar/management/invoices',
+        link: '/app/management/invoices',
         items: [
           {
             name: 'List',
@@ -267,21 +265,6 @@ const menuItems: MenuItems[] = [
             link: 'management/invoices/single'
           }
         ]
-      }
-    ]
-  },
-  {
-    heading: 'Foundation',
-    items: [
-      {
-        name: 'Overview',
-        link: '/overview',
-        icon: DesignServicesTwoToneIcon
-      },
-      {
-        name: 'Documentation',
-        icon: SupportTwoToneIcon,
-        link: '/docs'
       }
     ]
   }

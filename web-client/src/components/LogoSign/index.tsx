@@ -101,7 +101,7 @@ function Logo() {
 
   return (
     <TooltipWrapper title={t('Jewelry Manager')} arrow>
-      <LogoWrapper to="/overview">
+      <LogoWrapper to="/app/dashboards">
         <Badge
           sx={{
             '.MuiBadge-badge': {

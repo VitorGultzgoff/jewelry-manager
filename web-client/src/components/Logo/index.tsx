@@ -101,7 +101,7 @@ function Logo() {
   const { t }: { t: any } = useTranslation();
 
   return (
-    <LogoWrapper to="/overview">
+    <LogoWrapper to="/app/dashboards">
       <LogoSignWrapper>
         <LogoSign>
           <LogoSignInner />
