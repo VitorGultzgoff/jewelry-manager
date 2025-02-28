@@ -294,15 +294,6 @@ const ThemeSettings: FC = () => {
                   fontWeight: 'bold'
                 }}
                 component={NavLink}
-                to="/extended-sidebar/dashboards"
-              >
-                Extended Sidebar
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
                 to="/accent-header/dashboards"
               >
                 Accent Header
@@ -312,45 +303,9 @@ const ThemeSettings: FC = () => {
                   fontWeight: 'bold'
                 }}
                 component={NavLink}
-                to="/accent-sidebar/dashboards"
-              >
-                Accent Sidebar
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
-                to="/boxed-sidebar/dashboards"
-              >
-                Boxed Sidebar
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
                 to="/collapsed-sidebar/dashboards"
               >
                 Collapsed Sidebar
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
-                to="/bottom-navigation/dashboards"
-              >
-                Bottom Navigation
-              </MenuItem>
-              <MenuItem
-                sx={{
-                  fontWeight: 'bold'
-                }}
-                component={NavLink}
-                to="/top-navigation/dashboards"
-              >
-                Top Navigation
               </MenuItem>
             </Menu>
           </Box>

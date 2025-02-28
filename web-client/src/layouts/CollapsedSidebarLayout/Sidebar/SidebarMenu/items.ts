@@ -8,7 +8,6 @@ import StorefrontTwoToneIcon from '@mui/icons-material/StorefrontTwoTone';
 import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
 import SupportTwoToneIcon from '@mui/icons-material/SupportTwoTone';
 import ReceiptTwoToneIcon from '@mui/icons-material/ReceiptTwoTone';
-import BackupTableTwoToneIcon from '@mui/icons-material/BackupTableTwoTone';
 import SmartToyTwoToneIcon from '@mui/icons-material/SmartToyTwoTone';
 
 export interface MenuItem {
@@ -30,44 +29,6 @@ const menuItems: MenuItems[] = [
   {
     heading: 'General',
     items: [
-      {
-        name: 'Blueprints',
-        icon: BackupTableTwoToneIcon,
-        badge: 'v3',
-        link: '',
-        items: [
-          {
-            name: 'Extended sidebar',
-            link: '/extended-sidebar/dashboards'
-          },
-          {
-            name: 'Accent header',
-            link: '/accent-header/dashboards',
-            badge: '',
-            badgeTooltip: 'Updated'
-          },
-          {
-            name: 'Accent sidebar',
-            link: '/accent-sidebar/dashboards'
-          },
-          {
-            name: 'Boxed sidebar',
-            link: '/boxed-sidebar/dashboards'
-          },
-          {
-            name: 'Collapsed sidebar',
-            link: '/collapsed-sidebar/dashboards'
-          },
-          {
-            name: 'Bottom navigation',
-            link: '/bottom-navigation/dashboards'
-          },
-          {
-            name: 'Top navigation',
-            link: '/top-navigation/dashboards'
-          }
-        ]
-      },
       {
         name: 'Dashboards',
         icon: SmartToyTwoToneIcon,

@@ -12,7 +12,7 @@ const Guest: FC<GuestProps> = ({ children }) => {
   const { isAuthenticated } = useAuth();
 
   if (isAuthenticated) {
-    return <Navigate to="/extended-sidebar/dashboards/reports" />;
+    return <Navigate to="/collapsed-sidebar/dashboards/reports" />;
   }
 
   return <>{children}</>;

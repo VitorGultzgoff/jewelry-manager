@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import Logo from 'src/components/LogoSign';
-import LanguageSwitcher from 'src/layouts/BoxedSidebarLayout/Header/Buttons/LanguageSwitcher';
+import LanguageSwitcher from 'src/layouts/CollapsedSidebarLayout/Header/Buttons/LanguageSwitcher';
 import Footer from 'src/components/Footer';
 import OverviewSection from './OverviewSection';
 
@@ -49,7 +49,7 @@ function Overview() {
                 <LanguageSwitcher />
                 <Button
                   component={RouterLink}
-                  to="/extended-sidebar/dashboards"
+                  to="/login"
                   variant="contained"
                   sx={{
                     ml: 2

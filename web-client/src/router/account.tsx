@@ -10,16 +10,8 @@ const Loader = (Component) => (props) =>
     </Suspense>
   );
 
-// Account
-
-const RegisterCover = Loader(
-  lazy(() => import('src/content/pages/Auth/Register/Cover'))
-);
-const RegisterBasic = Loader(
+const Register = Loader(
   lazy(() => import('src/content/pages/Auth/Register/Basic'))
-);
-const RegisterWizard = Loader(
-  lazy(() => import('src/content/pages/Auth/Register/Wizard'))
 );
 
 const RecoverPassword = Loader(
@@ -31,33 +23,13 @@ const accountRoutes = [
     path: 'register',
     element: (
       <Guest>
-        <RegisterCover />
+        <Register />
       </Guest>
     )
   },
   {
     path: 'recover-password',
     element: <RecoverPassword />
-  },
-  {
-    path: 'register',
-    element: (
-      <Guest>
-        <RegisterCover />
-      </Guest>
-    )
-  },
-  {
-    path: 'register-basic',
-    element: <RegisterBasic />
-  },
-  {
-    path: 'register-cover',
-    element: <RegisterCover />
-  },
-  {
-    path: 'register-wizard',
-    element: <RegisterWizard />
   }
 ];
 

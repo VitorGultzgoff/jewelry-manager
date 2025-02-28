@@ -14,7 +14,7 @@ import useAuth from 'src/hooks/useAuth';
 import useRefMounted from 'src/hooks/useRefMounted';
 import { useTranslation } from 'react-i18next';
 
-function RegisterJWT() {
+function RegisterFields() {
   const { register } = useAuth() as any;
   const isMountedRef = useRefMounted();
   const { t }: { t: any } = useTranslation();
@@ -151,4 +151,4 @@ function RegisterJWT() {
   );
 }
 
-export default RegisterJWT;
+export default RegisterFields;

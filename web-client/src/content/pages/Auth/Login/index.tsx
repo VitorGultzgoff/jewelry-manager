@@ -79,7 +79,7 @@ export const LoginPage: FC = () => {
                 >
                   {t('Don’t have an account, yet?')}
                 </Typography>{' '}
-                <Link component={RouterLink} to="/account/register-basic">
+                <Link component={RouterLink} to="/account/register">
                   <b>Sign up here</b>
                 </Link>
               </Box>
