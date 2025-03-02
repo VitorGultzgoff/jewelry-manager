@@ -1,7 +1,6 @@
 import { FC, ReactNode, createContext, useEffect, useReducer } from 'react';
 import { User } from 'src/models/user';
 import axios from 'src/utils/axios';
-import { verify, JWT_SECRET } from 'src/utils/jwt';
 import PropTypes from 'prop-types';
 
 interface AuthState {
@@ -124,7 +123,7 @@ export const AuthProvider: FC<AuthProviderProps> = (props) => {
       try {
         const accessToken = window.localStorage.getItem('accessToken');
 
-        if (accessToken && verify(accessToken, JWT_SECRET)) {
+        if (accessToken) {
           setSession(accessToken);
 
           const response = await axios.get<{ user: User }>(
