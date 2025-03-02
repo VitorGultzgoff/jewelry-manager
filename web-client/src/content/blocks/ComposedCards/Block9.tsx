@@ -518,30 +518,6 @@ function Block9() {
                       />
                     </ButtonWrapper>
                   </Tooltip>
-                  <Tooltip arrow title={t('Sign in with Amplify')}>
-                    <ButtonWrapper
-                      sx={{
-                        mx: 1.5
-                      }}
-                      size="large"
-                      variant="outlined"
-                    >
-                      <img
-                        style={{ height: 28 }}
-                        alt="Amplify"
-                        src="/static/images/logo/amplify.svg"
-                      />
-                    </ButtonWrapper>
-                  </Tooltip>
-                  <Tooltip arrow title={t('Sign in with Auth0')}>
-                    <ButtonWrapper size="large" variant="outlined">
-                      <img
-                        style={{ height: 28 }}
-                        alt="Amplify"
-                        src="/static/images/logo/auth0.svg"
-                      />
-                    </ButtonWrapper>
-                  </Tooltip>
                 </CardWrapper>
                 <Typography
                   sx={{
